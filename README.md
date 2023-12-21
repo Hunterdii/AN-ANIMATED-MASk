@@ -24,4 +24,4 @@ This repository includes 3D models of masks and related assets. Feel free to exp
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/mask-repository.git
+   https://github.com/Hunterdii/AN-ANIMATED-MASk
