@@ -14,7 +14,6 @@ Welcome to the Mask Repository! This repository contains assets related to masks
 
 - [LinkedIn](https://www.linkedin.com/in/het-patel-8b110525a/)
 - [Email](mailto:hunterdii9879@gmail.com)
-- [Instagram](https://instagram.com/het9778?igshid=MzNlNGNkZWQ4Mg==)
 
 ## About
 
