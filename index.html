@@ -1,99 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miro Leon Bucher</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miro Leon Bucher</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-html, body {
-  margin:0;
-  overflow: hidden;
-    background-color: #11151c;
-}
+    html, body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #11151c;
+    }
 
+    a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+    }
 
-a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: all 0.5s ease-in-out;
-}
+    a:hover {
+      filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
+    }
 
-a:hover{
-  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
-}
+    .canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
 
-#canvas{
-  height 100%;
-  width: 100%;
-  z-index: 0;
-}
+    #canvas {
+      width: 100%;
+      height: 100%;
+    }
 
-.text-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    top: 10%;
-    height: 80%;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    z-index: 1;
-}
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      z-index: 1;
+    }
 
-.title{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-}
+    .title {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+    }
 
-.socials{
-    
-}
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-.socials svg{
-    margin: 0 5px;
-    transition: all 0.5s ease-in-out;
-    transform: scale(1);
-}
+    .socials a {
+      margin: 0 15px;
+      transition: all 0.5s ease-in-out;
+    }
 
-.socials svg:hover{
-    transform: scale(1.2);
-  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
-}
-  </style>
+    .socials a:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+    }
+  </style>
 </head>
 <body>
-  <div class="text-container">
-    <div class="title">(HUNTER)
-      <br>
-      <a href="https://github.com/Hunterdii" target="_blank">MaSk BrO</a>
-    </div>
-    <div class="socials">
-      <a href="https://www.linkedin.com/in/het-patel-8b110525a/" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M22 4.5A2.5 2.5 0 0 0 19.5 2h-15A2.5 2.5 0 0 0 2 4.5v15A2.5 2.5 0 0 0 4.5 22h15A2.5 2.5 0 0 0 22 19.5v-15zm-5 14h-1.5V11H16v7zm-1.5-8.875A1.624 1.624 0 0 1 16.75 6.5a1.628 1.628 0 0 1 1.625 1.625 1.628 1.628 0 0 1-1.625 1.625A1.628 1.628 0 0 1 15.5 9.625zm7 8.875h-1.5V14.5c0-1.094-.844-1.969-1.875-1.969s-1.875.875-1.875 1.969v3.125H9V11h1.5v1.094c.594-.875 1.656-1.875 3.656-1.875 2.969 0 5.344 1.938 5.344 5.938v5.844z"/></svg>
-      </a>
+  <div class="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
 
-      <a href="mailto:hunterdii9879@gmail.com" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-4.417 0-8 3.582-8 8c0 2.133.867 4.061 2.271 5.469L2.828 20c-.586.586-.586 1.535 0 2.121c.586.586 1.535.586 2.121 0l4.531-4.531C9.939 18.133 11.867 19 14 19c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0 2c3.314 0 6 2.686 6 6s-2.686 6-6 6s-6-2.686-6-6s2.686-6 6-6zm1 6c.554 0 1 .446 1 1v4c0 .554-.446 1-1 1s-1-.446-1-1v-4c0-.554.446-1 1-1zm-1.799 6c-.071.028-.13.071-.197.104c-.65.416-1.417.628-2.304.628c-.888 0-1.655-.212-2.304-.628c-.066-.033-.124-.076-.197-.104C5.56 16.477 5 15.301 5 14c0-1.301.56-2.477 1.465-3.274c.071-.028.13-.071.197-.104c.65-.416 1.417-.628 2.304-.628c.888 0 1.655.212 2.304.628c.066.033.124.076.197.104c.905.797 1.465 1.973 1.465 3.274c0 1.301-.56 2.477-1.465 3.274z"/></svg>
-      </a>
-      
-      <a href="https://instagram.com/het9778?igshid=MzNlNGNkZWQ4Mg==" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-4.418 0-8 3.582-8 8c0 4.418 3.582 8 8 8c4.418 0 8-3.582 8-8c0-4.418-3.582-8-8-8zm0 14c-2.206 0-4-1.794-4-4s1.794-4 4-4s4 1.794 4 4s-1.794 4-4 4zm7.051-11.97a1.25 1.25 0 0 0-1.051-.581c-3.052-.005-6.103-.005-9.155 0a1.25 1.25 0 0 0-1.05.58C6.56 5.375 6.5 6.544 6.5 7.75s.06 2.375.146 3.22a1.25 1.25 0 0 0 1.051.58c3.05.005 6.1.005 9.151 0a1.25 1.25 0 0 0 1.051-.58c.085-.846.145-2.016.145-3.22s-.06-2.375-.146-3.22zM12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
-      </a>
-    </div>
-  </div>
+  <div class="text-container">
+    <div class="title">(HUNTER) <br> <a href="https://github.com/Hunterdii" target="_blank">MaSk BrO</a> </div>
+    
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/het-patel-8b110525a/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M22 4.5A2.5 2.5 0 0 0 19.5 2h-15A2.5 2.5 0 0 0 2 4.5v15A2.5 2.5 0 0 0 4.5 22h15A2.5 2.5 0 0 0 22 19.5v-15zm-5 14h-1.5V11H16v7zm-1.5-8.875A1.624 1.624 0 0 1 16.75 6.5a1.628 1.628 0 0 1 1.625 1.625 1.628 1.628 0 0 1-1.625 1.625A1.628 1.628 0 0 1 15.5 9.625zm7 8.875h-1.5V14.5c0-1.094-.844-1.969-1.875-1.969s-1.875.875-1.875 1.969v3.125H9V11h1.5v1.094c.594-.875 1.656-1.875 3.656-1.875 2.969 0 5.344 1.938 5.344 5.938v5.844z"/>
+        </svg>
+      </a>
 
-  <canvas id="canvas"></canvas>
+      <a href="mailto:hunterdii9879@gmail.com" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 2c-4.417 0-8 3.582-8 8c0 2.133.867 4.061 2.271 5.469L2.828 20c-.586.586-.586 1.535 0 2.121c.586.586 1.535.586 2.121 0l4.531-4.531C9.939 18.133 11.867 19 14 19c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0 2c3.314 0 6 2.686 6 6s-2.686 6-6 6s-6-2.686-6-6s2.686-6 6-6zm1 6c.554 0 1 .446 1 1v4c0 .554-.446 1-1 1s-1-.446-1-1v-4c0-.554.446-1 1-1zm-1.799 6c-.071.028-.13.071-.197.104c-.65.416-1.417.628-2.304.628c-.888 0-1.655-.212-2.304-.628c-.066-.033-.124-.076-.197-.104C5.56 16.477 5 15.301 5 14c0-1.301.56-2.477 1.465-3.274c.071-.028.13-.071.197-.104c.65-.416 1.417-.628 2.304-.628c.888 0 1.655.212 2.304.628c.066.033.124.076.197.104c.905.797 1.465 1.973 1.465 3.274c0 1.301-.56 2.477-1.465 3.274z"/>
+        </svg>
+      </a>
+      
+      <a href="https://instagram.com/het9778?igshid=MzNlNGNkZWQ4Mg==" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 2c-4.418 0-8 3.582-8 8c0 4.418 3.582 8 8 8c4.418 0 8-3.582 8-8c0-4.418-3.582-8-8-8zm0 14c-2.206 0-4-1.794-4-4s1.794-4 4-4s4 1.794 4 4s-1.794 4-4 4zm7.051-11.97a1.25 1.25 0 0 0-1.051-.581c-3.052-.005-6.103-.005-9.155 0a1.25 1.25 0 0 0-1.05.58C6.56 5.375 6.5 6.544 6.5 7.75s.06 2.375.146 3.22a1.25 1.25 0 0 0 1.051.58c3.05.005 6.1.005 9.151 0a1.25 1.25 0 0 0 1.051-.58c.085-.846.145-2.016.145-3.22s-.06-2.375-.146-3.22zM12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
 
-  <script type="module">
-    import * as THREE from 'https://cdn.skypack.dev/three@0.124.0';
+  <script type="module">
+    // Your Three.js and animation code here
+    import * as THREE from 'https://cdn.skypack.dev/three@0.124.0';
 import { RGBELoader  } from 'https://cdn.skypack.dev/three@0.124.0/examples/jsm/loaders/RGBELoader.js';
 import { EffectComposer } from 'https://cdn.skypack.dev/three@0.124.0/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'https://cdn.skypack.dev/three@0.124.0/examples/jsm/postprocessing/RenderPass.js';
@@ -230,8 +244,9 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// Initial call to animate function
-requestAnimationFrame(animate);
-  </script>
+    // Initial call to animate function
+   requestAnimationFrame(animate);
+  </script>
 </body>
 </html>
+
