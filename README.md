@@ -1,6 +1,9 @@
 # Mask Repository
 
 Welcome to the Mask Repository! This repository contains assets related to masks.
+## Demo
+
+Check out the live demo on [CodePen]().
 
 ## Overview
 
